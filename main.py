@@ -20,7 +20,7 @@ class Project(ProjectSubmission):
     """Modèle complet d'un projet, incluant l'ID et la note."""
 
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    grade: Optional[int] = Field(None, ge=0, le=20)
+    grade: Optional[int] = Field(None, ge=0, le=20, description="Note du projet (0-20)")
 
 
 # --- Logique de gestion du fichier DB ---
@@ -51,7 +51,9 @@ def save_db(projects: List[Project]):
 
 # --- Initialisation de l'API ---
 
-app = FastAPI(title="ProjetAPI ", version="0.1.0")
+app = FastAPI(
+    title="ProjetAPI - Gestion des Soumissions de Projets Étudiants", version="0.1.0"
+)
 
 # Charger la base de données au démarrage
 projects_db = load_db()
@@ -59,7 +61,7 @@ projects_db = load_db()
 
 @app.get("/")
 def read_root():
-    return {"message"}
+    return {"message": "Bienvenue sur l'API de gestion des soumissions de projets."}
 
 
 # --- Endpoint POST /projects ---
