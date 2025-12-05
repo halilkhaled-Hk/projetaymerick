@@ -61,7 +61,7 @@ projects_db = load_db()
 
 @app.get("/")
 def read_root():
-    return {"message": "Bienvenue sur l'API de gestion des soumissions de projets."}
+    return {"message": "bienvenue sur l'API de gestion des soumissions de projets."}
 
 
 # --- Endpoint POST /projects ---
