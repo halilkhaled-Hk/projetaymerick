@@ -1,0 +1,12 @@
+[flake8]
+# Ignorer les erreurs courantes de Black/Flake8 qui se chevauchent ou sont trop strictes
+# E203: Whitespace before ':' (conflit avec Black)
+# W503: Line break before binary operator (conflit avec Black)
+ignore = E203, W503
+
+# Augmenter la limite de longueur de ligne de 79 à 88 caractères
+# (Pour correspondre à la limite par défaut de Black)
+max-line-length = 200
+
+# Exclure les répertoires ou fichiers à ne pas vérifier
+exclude = .git, __pycache__, venv, .venv
